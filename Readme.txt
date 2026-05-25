@@ -32,7 +32,8 @@ assignment2/
 └── Readme.txt          → This file
 
 2. GitHub Repository link
-- 
+- https://github.com/techguy01111100111/Assignment-2- (Full file from GitHub)
+- https://techguy01111100111.github.io/Assignment-2-/ (Directly to the website)
 
 3. JAVASCRIPT VALIDATION LOGIC (Plain English)
 
