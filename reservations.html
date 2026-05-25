@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDine - Restaurant Discovery & Reservations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <header>
+        <div class="header-logo">
+            <span class="web-name">EasyDine</span>
+        </div>
+
+        <!--Navigation Bar-->
+        <nav class="active">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="recommend.html">Recommendations</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        </nav>
+    </header>
+
+
+    <!--Reservation form-->
+    <main>
+        <div class="page-title">
+            <h1>Make a reservation with us!</h1>
+            <p>Fill in the details below to book your table.</p>
+        </div>
+
+        <section class="form-section">
+            <h2 class="visually-hidden">Reservation Form</h2>
+            <form id="reservationForm" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST">
+                <!-- First Name-->
+                <div class="form-group">
+                    <label for="fname">First Name: <span class="required">*</span></label>
+                    <input type="text" id="fname" name="fname">
+                    <span class="error-msg" id="fnameError"></span>
+                </div>
+
+                <!-- Last Name-->
+                <div class="form-group">
+                    <label for="lname">Last Name: <span class="required">*</span></label>
+                    <input type="text" id="lname" name="lname">
+                    <span class="error-msg" id="lnameError"></span>
+                </div>
+
+                <!-- Phone Number-->
+                 <div class="form-group">
+                    <label for="resPhone">Phone Number: <span class="required">*</span></label>
+                    <input type="text" id="resPhone" name="resPhone" placeholder="e.g. 0412345678">
+                    <span class="error-msg" id="resPhoneError"></span>
+                </div>
+
+                <!-- Email Address -->
+                 <div class="form-group">
+                    <label for="resEmail">Email Address: <span class="required">*</span></label>
+                    <input type="email" id="resEmail" name="resEmail" placeholder="example@gmail.com">
+                    <span class="error-msg" id="resEmailError"></span>
+                </div>
+
+                <!-- Restaurant Selection -->
+                 <div class="form-group">
+                    <label for="restaurantSelect">Select A Restaurant: <span class="required">*</span></label>
+                    <select id="restaurantSelect" name="restaurantSelect" onchange="updateDeposit()">
+                        <option value="">-- Choose a Restaurant --</option>
+                        <option value="The Golden Spoon" data-deposit="20">The Golden Spoon</option>
+                        <option value="The Melaya" data-deposit="0">The Melaya</option>
+                        <option value="The Spice Heaven" data-deposit="30">The Spice Heaven</option>
+                        <option value="The Emperor Dragon" data-deposit="30">The Emperor Dragon</option>
+                        <option value="The Hellas Dining" data-deposit="25">The Hellas Dining</option>
+                        <option value="Sakura Sushi" data-deposit="20">Sakura Sushi</option>
+                    </select>
+                    <span class="error-msg" id="restaurantError"></span>
+                </div>
+
+                <!-- Reservation Date & Time -->
+                 <div class="form-group">
+                    <label for="resDate">Reservation Date: <span class="required">*</span></label>
+                    <input type="date" id="resDate" name="resDate">
+                    <span class="error-msg" id="resDateError"></span>
+                </div>
+
+                 <div class="form-group">
+                    <label for="resTime">Reservation Time: <span class="required">*</span></label>
+                    <input type="time" id="resTime" name="resTime">
+                    <span class="error-msg" id="resTimeError"></span>
+                </div>
+
+                <!-- Number of People -->
+                 <div class="form-group">
+                    <label for="numPeople">Number of People: <span class="required">*</span></label>
+                    <input type="number" id="numPeople" name="numPeople" min="1" placeholder="Must be greater than 0">
+                    <span class="error-msg" id="numPeopleError"></span>
+                 </div>
+
+                <!-- Special Requests -->
+                 <div class="form-group">
+                    <label for="special">Special Requests: (optional)</label>
+                    <textarea  id="special" name="special" rows="4" placeholder="Allergies, seating preferences, etc."></textarea>
+                </div>  
+
+                <div class="form-group">
+                    <label for="depositAmount">Deposit Amount: </label>
+                    <input type="text" id="depositAmount" name="depositAmount" value="Please select a restaurant" readonly class="readonly-field">
+                </div>
+                
+                <!-- Deposit Method -->
+                 <div class="form-group">
+                    <label>Deposit Payment Method: <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="depositMethod" value="voucher" onchange="showPaymentFields()">Voucher</label>
+                        <label><input type="radio" name="depositMethod" value="online" onchange="showPaymentFields()">Online Payment</label>
+                    </div>
+                    <span class="error-msg" id="depositMethodError"></span>
+                </div>
+
+                <!-- Voucher Code Field (hidden by default. shown when Voucher is selected in deposit method section) -->
+                <div class="form-group" id="voucherGroup" style="display: none;">
+                    <label for="voucherCode">Voucher Code (12 digits): <span class="required">*</span></label>
+                    <input type="text" id="voucherCode" name="voucherCode" placeholder="Enter 12-digit voucher code" maxlength="12">
+                    <span class="error-msg" id="voucherCodeError"></span>
+                </div>
+
+                <!-- Credit Card Field (hidden by default, shown when Online Payment is selected) -->
+                <div class="form-group" id="creditCardGroup" style="display: none;">
+                    <label for="creditCard">Credit Card Number: <span class="required">*</span></label>
+                    <input type="text" id="creditCard" name="creditCard" placeholder="16-digits (Visa/MC) or 15 digits (Amex)">
+                    <small>Use fake credit card numbers for testing purposes.</small>
+                    <span class="error-msg" id="creditCardError"></span>
+                </div>
+
+                <!-- Billing Email-->
+                 <div class="form-group">
+                    <label for="billingEmail">Billing Email: <span class="required">*</span></label>
+                    <!-- Checkbos to copy email from resemail field above-->
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="sameEmail" onchange="copyEmail()">
+                            Click here if billing email is same as reservation email
+                        </label>
+                    <input type="email" id="billingEmail" name="billingEmail" placeholder="Billing email address">
+                    <span class="error-msg" id="billingEmailError"></span>
+                 </div>
+
+                 <div class="form-group">
+                    <button type="submit" id="submitBtn" class="btn">Submit Your Reservation</button>
+                    <button type="reset" id="resetBtn" class="btn">Reset Form</button>
+                 </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. All rights reserved.</p>
+        <p>Contact us | email: info@dineeasy.com | phone: (03) 1234 5678</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

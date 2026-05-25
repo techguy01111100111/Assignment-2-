@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDine - Restaurant Discovery & Reservations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!--Header-->
+    <header>
+        <div class="header-logo">
+            <span class="web-name">EasyDine</span>
+        </div>
+
+        <!--Navigation Bar-->
+        <nav class="active">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="recommend.html">Recommendations</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        </nav>
+    </header>
+
+
+    <!--Home Page-->
+    <main>
+        <div class="page-title">
+            <h1>Create an Account</h1>
+            <p>Join EasyDine to save your preferences and book tables faster next time!</p>
+        </div>
+
+        <!--include URL in action section later-->
+        <section class="form-section">
+            <h2 class="visuall-hidden">Registration Form</h2>
+            <form id="registerForm" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST">
+                
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username: <span class="required">*</span></label>
+                    <input type="text" id="username" name="username">
+                    <small>At least 5 characters. Letters, numbers, and underscores only.</small>
+                    <span class="error-msg" id="usernameError"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email: <span class="required">*</span></label>
+                    <input type="email" id="email" name="email">
+                    <small>Must be a valid email address.</small>   
+                    <span class="error-msg" id="emailError"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone Number: <span class="required">*</span></label>
+                    <input type="text" id="phone" name="phone">
+                    <small>Must be digits only, between 8 and 15 characters.</small>
+                    <span class="error-msg" id="phoneError"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password: <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password">
+                        <button type="button" id="togglePassword" class="toggle-password" onclick="togglePasswordVisibility('password', 'togglePassword')">Show Password</button>
+                    </div>
+                    <small>Minimum 8 characters, at least 1 uppercase, 1 lowercase, 1 number and 1 special character.</small>
+                    <span class="error-msg" id="passwordError"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Re-enter Password: <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        <button type="button" id="toggleConfirmPassword" class="toggle-password" onclick="togglePasswordVisibility('confirmPassword', 'toggleConfirmPassword')">Show Password</button>
+                    </div>
+                    <small>Must match the password above.</small>
+                    <span class="error-msg" id="confirmPasswordError"></span>
+                </div>
+
+                <!-- Gender-->
+                <div class="form-group">
+                    <label>Gender: <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="other"> Other</label>
+                        <label><input type="radio" name="gender" value="prefer_not_to_tell"> Prefer not to tell</label>
+                    </div>
+                    <span class="error-msg" id="genderError"></span>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Country / Region: <span class="required">*</span></label>
+                    <select id="country" name="country">
+                        <option value="">Select your country</option>
+                        <option value="AU">Australia</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="CN">China</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="IN">India</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-msg" id="countryError"></span>
+                </div>
+
+                <!-- Submit Button-->
+                <div class="form-group">
+                    <button type="submit" id="submitBtn" class="btn">Create Account</button>
+                    <button type="reset" id="resetBtn" class="btn">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. All rights reserved.</p>
+        <p>Contact us | email: info@dineeasy.com | phone: (03) 1234 5678</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

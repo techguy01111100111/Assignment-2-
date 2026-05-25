@@ -1,0 +1,533 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    color: #2C1010;
+    background-color: #FDF0F5;
+    line-height: 1.5; /*Space between lines of text*/ 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /*Viewport height ensuring the body takes at least the full viewport height */
+}
+
+main{
+    flex: 1;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+    margin: 20px auto; /*Center the image and add vertical spacing*/
+}
+
+ul{
+    list-style: none; /*Remove default bullet points*/
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header & Navigation Bar container */
+header{
+    display: flex;
+    background-color: #3B1F2B;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 30px;
+    position: sticky;
+    top: 0;
+}
+
+.web-name{
+    font-size: 40px;
+    font-weight: bold;
+    color: #cf9696;
+    letter-spacing: 1px; /*Space between letters*/
+    padding-left: 50px;
+}
+
+nav{
+    padding: 10px 30px; 
+}
+
+nav ul{
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a{
+    display: block;  
+    padding: 10px 16px;
+    color: #ffb6c1;
+    font-size: 16px; 
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 4px;
+}
+
+/* Hover effect for nav links */
+nav ul li a:hover{
+    background-color: #ffb6c1;
+    color: #6d1a36;
+}
+
+/* The "active" class is added to the current page's link in the nav bar */
+nav ul li a.active{
+    background-color: #ffb6c1;
+    color: #6d1a36;
+    font-weight: bold;
+}
+
+/* Hero section on home page */
+.hero{
+    background-color: #ffb6c1;
+    color: #6d1a36; 
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1{
+    font-size: 36px;
+    color: #3B1F2B;
+    margin-bottom: 10px;
+}
+
+.hero p{
+    font-size: 16px;
+    color: #3B1F2B;
+}
+
+/* Page title */
+.page-title{
+    background-color: #ffb6c1;
+    color: #6d1a36;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.page-title h1{
+    font-size: 36px;
+    color: #3B1F2B;
+    margin-bottom: 10px;
+}
+
+.page-title p{
+    font-size: 16px;
+    color: #3B1F2B;
+}
+
+/* button style in multiple pages */
+.btn{
+    display: inline-block;
+    background-color: #ffb6c1;
+    color: #1a1a1a;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    border: 1px solid;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover{
+    background-color: #ff69b4;
+    color: #1a1a1a;
+}
+
+/* Toggle button style to show password */
+.password-wrapper{
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden; /*Ensure the toggle button doesn't overflow the wrapper*/
+}
+
+.password-wrapper input [type="password"],
+.password-wrapper input [type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    width: auto;
+}
+
+.toggle-password{
+    border: none;
+    cursor: pointer;
+    background-color: #3B1F2B;
+    font-weight: bold;
+    color: #ffb6c1;
+    font-size: 10px;
+    padding: 0 12px;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+/*Section general style*/
+section {
+    padding: 30px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h2{
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #3B1F2B;
+    border-bottom: 2px solid #ffb6c1;
+    padding-bottom: 8px;
+}
+
+section p{
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+section ul li{
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Card style for every page */
+.card-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card{
+    background-color: #ffb6c1;
+    color: #6d1a36; 
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1; /* each card takes equal space */
+    min-width: 220px; /* minimum width for each card */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.card h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2C1010;
+    text-align: center;
+}
+
+.card p{
+    font-size: 15px;
+    color: #3B1F2B;
+}
+
+
+.about-img{
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 3px solid #fde8f0; 
+}
+
+
+/* Service list in Home Page */
+.service-list{
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li{
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #3B1F2B;
+}
+
+
+/* Restaurant Listing Page */
+.restaurant-list {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 10px;
+}
+
+.restaurant-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #fde8f0;
+    border: 1px solid #e8a0b0;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 5px 2px 8px lightpink;
+}
+
+.restaurant-card img{
+    width: 30%;
+    height: 50%;
+    padding-left: 20px;
+    padding-top: 20px;
+    object-fit: cover; /*Crop image to fill the container without distortion*/ 
+}
+
+.restaurant-info{
+    padding: 20px;
+    flex: 1; /*Take up remaining space in the card*/
+    min-width: 250px; /*Minimum width for the info section*/
+}
+
+.restaurant-info h2{
+    font-size: 25px;
+    margin-bottom: 8px;
+    color: #3B1F2B;
+    border-bottom: none; 
+}
+
+.cuisine{
+    font-size: 15px;
+    color:#3B1F2B;
+    margin-bottom: 10px;
+}
+
+.description{
+    font-size: 15px;
+    color: #3B1F2B;
+    margin-bottom: 10px;
+}
+
+.restaurant-info h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #3B1F2B;
+}
+
+/* Brings back bullet points for restaurant info lists and styles them with lowercase letters */
+.restaurant-info ul{
+    list-style: lower-roman; /*Use lower-roman numeric number for list items*/
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.price-range{
+    font-size: 15px;
+    color: #3B1F2B;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.deposit{
+    font-size: 15px;
+    color: #3B1F2B;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Forms style in recommendation, register & reservation pages */
+.form-section{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #3B1F2B;
+    font-family: Arial, sans-serif;
+}
+
+/* Text inputs. email inputs, phone number inputs, password inputs, date inputs, time inputs, select dropdowns and textareas */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="pnumber"],
+.form-group input[type="number"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Add focus effect to form input   */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color: #ffb6c1;
+    outline: none;
+}
+
+/* Read-only field (deposit amount), unable user to modify*/
+.readonly-field{
+    background-color: #f0f0f0;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.radio-group,
+.checkbox-group{
+    display: flex;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Required field */
+.required{
+    color: #cc0000;
+}
+
+/* Error Message */
+.error-msg{
+    color: #cc0000;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    display: block;
+    margin-top: 4px;
+}
+
+.input-error{
+    border-color: #cc0000;
+}
+
+.recommend-result{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fde8f0;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.recommend-result h2{
+    font-size: 23px;
+    margin-bottom: 14px;
+    color: #3B1F2B;
+    border-bottom: none;
+}
+
+
+/* Footer Style */
+footer{
+    background-color: #3B1F2B;
+    color: #cf9696;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+footer p{
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+/* Media 768px to 1023px */
+@media (max-width: 1023px){
+    .hero h1{
+        font-size: 36px;
+    }
+    
+    .hero p{
+        font-size: 166px;
+    }
+
+    nav ul li a{
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .restaurant-card img{
+        width: 220px;
+        height: 180px;
+    }
+
+    section{
+        padding: 30px 20px;
+    }
+}
+
+
+/* Media 767px and below */
+@media (max-width: 767px){
+    .hero h1{
+        font-size: 20px;
+    }
+    
+    .hero p{
+        font-size: 10px;
+    }
+
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 16px;
+    }
+
+    .web-name{
+        font-size: 24px;
+        padding-left: 0;
+    }
+
+    nav{
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    nav ul{
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    /*Make each nav link smaller and more compact */
+    nav ul li a{
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .restaurant-card{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .restaurant-card img{
+        width: 70%;
+        height: auto;
+    }
+
+    .restaurant-info{
+        padding: 20px 0;
+        text-align: center;
+    }
+}

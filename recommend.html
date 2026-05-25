@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations - EasyDine</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <!--Header-->
+    <header>
+        <div class="header-logo">
+            <span class="web-name">EasyDine</span>
+        </div>
+
+        <!--Navigation Bar-->
+        <nav class="active">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="recommend.html">Recommendations</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        </nav>
+    </header>
+
+
+    <!--Main Page-->
+    <main>
+        <div class="page-title">
+            <h1>Find Your Perfect Dining Experience</h1>
+            <p>Tell us your preferences and we will recommend the best restaurant for your perfect night!</p>
+        </div>
+
+        <section class="form-section">
+            <form id="recommendationform">
+
+                <div class="form-group">
+                    <label for="dietary">Choose your dietary:</label>
+                    <select id="dietary" name="dietary">
+                        <option value="">-- Select --</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="halal">Halal</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">What is your budget?</label>
+                    <select id="budget" name="budget">
+                        <option value="">-- Select --</option>
+                        <option value="low">Under $30</option>
+                        <option value="medium">$30 - $60</option>
+                        <option value="high">Over $60</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="purpose">Dining Purpose: </label>
+                    <select id="purpose" name="purpose">
+                        <option value="">-- Select --</option>
+                        <option value="casual">Casual Dining</option>
+                        <option value="date">Romantic Date</option>
+                        <option value="family">Family Outing</option>
+                        <option value="business">Business Lunch/Dinner</option>
+                    </select>
+                </div>
+
+                <button type="button" id="submitBtn" class="btn" onclick="getRecommendation()">Get Recommendations</button>
+                <button type="reset" id="resetBtn" class="btn">Reset</button>
+            </form>
+
+            <div id="recommendResult" class="recommend-result" style="display: none;">
+                <h2>Recommended Restaurant:</h2>
+                <div id="resultCard" class="restaurant-card"></div>
+                <a id="reserveBtn" href="reservations.html" class="btn">Reserve Now!</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. All rights reserved.</p>
+        <p>Contact us | email: info@dineeasy.com | phone: (03) 1234 5678</p>
+    </footer>
+
+</body>
+</html>
