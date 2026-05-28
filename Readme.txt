@@ -211,5 +211,4 @@ All images used on this website are either original or sourced from:
 
 
 
-All HTML, CSS, and JavaScript code is original work written by the student.
 
